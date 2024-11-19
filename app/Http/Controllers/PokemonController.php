@@ -10,12 +10,12 @@ class PokemonController extends Controller
     public function index()
 {
     $pokemon = Pokemon::all();
-    return view('pokemons.index', compact('pokemon'));
+    return view('pokemon.index', compact('pokemon'));
 }
 
 public function create()
 {
-    return view('pokemons.create');
+    return view('pokemon.create');
 }
 
 public function store(Request $request)
