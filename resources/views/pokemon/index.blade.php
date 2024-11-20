@@ -11,6 +11,12 @@
             <h3>{{ $entidade->name }}</h3>
             <p>{{ $entidade->type }}</p>
             <p>{{ $entidade->power_of_points }}</p>
+
+            @if(isset($entidade->coach))
+                <p>{{$entidade->coach->nome }}</p>
+            @else
+                <p>Nenhum treinador</p>
+            @endif
             <a href="{{ url('pokemon/'.$entidade->id. '/edit') }}">Edit</a>
             <form action="{{ url('pokemon/'.$entidade->id) }}" method="POST">
                 @csrf
