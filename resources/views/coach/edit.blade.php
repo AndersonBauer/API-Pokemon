@@ -4,7 +4,7 @@
 <form action="{{ url('coach/'. $coach->id) }}" method="POST">
         @csrf
         @method('PUT')
-        <div class="relative z-0 w-full py-2.5 text-center group mx-auto w-64 mt-10 border-2 border-black bg-white ">
+        <div class="relative z-0 w-full py-2.5 group mx-auto w-60 text-center mt-10 border-2 border-black bg-white ">
             <div class="">
             <label for="nome" class="block mb-2 text-sm font-medium text-black-900 dark:text-black text-xl">Coach Name</label>
                 <input class="border-2 border-black text-center" type="text" name="nome" placeholder="Nome" value="{{ $coach->nome}}" required>

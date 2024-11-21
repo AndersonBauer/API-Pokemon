@@ -4,7 +4,7 @@
 <form action="{{ url('pokemon/'. $pokemon->id) }}" method="POST">
         @csrf
         @method('PUT')
-        <div class="relative z-0 w-full py-2.5 text-center group mx-auto w-64 mt-10 border-2 border-black bg-white">
+        <div class="relative z-0 w-full py-2.5 group mx-auto w-60 text-center mt-10 border-2 border-black bg-white">
             <div class="mt-3 mb-3">
                 <label for="name" class=" text-left ml-10 block mb-2 text-sm font-medium text-gray-900 dark:text-gray text-xl">Pokemon Name</label>
                 <input class="border-2 border-black text-center" type="text" name="name" placeholder="Name" value="{{ $pokemon->name}}" required>
