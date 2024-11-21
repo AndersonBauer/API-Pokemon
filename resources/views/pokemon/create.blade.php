@@ -5,7 +5,7 @@
     <form action="{{ url('pokemon') }}" method="POST">
         @csrf
         @method('POST')
-        <div class="mt-5 w-70">
+        <div class="mt-5 w-64 mx-auto">
             <div class="relative z-0 w-full py-2.5 group mx-auto w-64">
                 <h1 class="text-3xl font-bold mb-4">Create a Pokemon</h1>
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray">Pokemon Name</label>

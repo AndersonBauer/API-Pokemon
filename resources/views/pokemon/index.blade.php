@@ -3,7 +3,7 @@
 @section('conteudo')
 
     @foreach($pokemon as $entidade)
-        <div class="relative z-0 w-full py-2.5 group mx-auto w-64 text-center mt-10 border-2 border-black bg-white">
+        <div class="relative z-0 w-full py-2.5 group mx-auto w-60 text-center mt-10 border-2 border-black bg-white">
             <h3 class="font-bold text-2xl">{{ $entidade->name }}</h3>
             <p> Type: {{ $entidade->type }}</p>
             <p> Power of Points: {{ $entidade->power_of_points }}</p>
