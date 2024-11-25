@@ -12,7 +12,8 @@ class Pokemon extends Model
         'name',
         'type',
         'power_of_points',
-        'coach_id'
+        'coach_id',
+        'image'
     ];
 
     public function coach(): BelongsTo

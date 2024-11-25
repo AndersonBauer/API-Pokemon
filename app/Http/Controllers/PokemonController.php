@@ -22,7 +22,25 @@ class PokemonController extends Controller
 
     public function store(Request $request)
     {
-        Pokemon::create($request->all());
+        
+        $request->validate([
+            'name' => 'required',
+            'coach_id' => 'required',
+            'type' => 'required',
+            'power_of_points' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+        ]);
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+
+        $pokemon = new Pokemon();
+        $pokemon->name = $request->name;
+        $pokemon->type = $request->type;
+        $pokemon->coach_id = $request->coach_id;
+        $pokemon->power_of_points = $request->power_of_points;
+        $pokemon->image = 'images/'.$imageName;
+        $pokemon->save();
+        
         return redirect('pokemon')->with('success', 'pokemon created successfully.');
     }
 
@@ -36,6 +54,20 @@ class PokemonController extends Controller
     {
         $pokemon = Pokemon::findOrFail($id);
         $pokemon->update($request->all());
+
+        $pokemon->name = $request->name;
+        $pokemon->type = $request->type;
+        $pokemon->coach_id = $request->coach_id;
+        $pokemon->power_of_points = $request->power_of_points;
+
+        if(!is_null($request->image)) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+
+            $pokemon->image = 'images/'.$imageName;
+        }
+        $pokemon->save();
+
         return redirect('pokemon')->with('success', 'pokemon updated successfully.');
     }
 

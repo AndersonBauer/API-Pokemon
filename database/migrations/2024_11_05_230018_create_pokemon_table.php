@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('type');
             $table->integer('power_of_points');
             $table->foreignId('coach_id')->references('id')->on('coaches');
+            $table->text('image');
             $table->timestamps();
         });
     }

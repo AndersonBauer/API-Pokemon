@@ -6,7 +6,8 @@
     @foreach($pokemon as $entidade)
     <div class="p-4 max-w-sm text-center">
         <div class="flex rounded-lg h-full dark:bg-gray-800 bg-teal-400 p-8 flex-col">
-            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ $entidade->name}}</h5>
+            <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset($entidade->image) }}" alt="{{ $entidade->name }}">
+            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ $entidade->name }}</h5>
             <p class="text-sm text-gray-500 dark:text-gray-400">Type: {{ $entidade->type}}</p>
             <p class="text-sm text-gray-500 dark:text-gray-400">Power Of Points: {{ $entidade->power_of_points}}</p>
             @if(isset($entidade->coach))
