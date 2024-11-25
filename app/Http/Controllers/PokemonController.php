@@ -57,7 +57,6 @@ class PokemonController extends Controller
 
         $pokemon->name = $request->name;
         $pokemon->type = $request->type;
-        $pokemon->coach_id = $request->coach_id;
         $pokemon->power_of_points = $request->power_of_points;
 
         if(!is_null($request->image)) {
