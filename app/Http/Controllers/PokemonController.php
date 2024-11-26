@@ -46,8 +46,9 @@ class PokemonController extends Controller
 
     public function edit($id)
     {
+        $coaches = Coach::all();
         $pokemon = Pokemon::findOrFail($id);
-        return view('pokemon.edit', compact('pokemon'));
+        return view('pokemon.edit', compact('pokemon', 'coaches'));
     }
 
     public function update(Request $request, $id)

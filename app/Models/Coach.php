@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Coach extends Model
 {
     protected $fillable = [
-        'nome'
+        'nome',
+        'image'
     ];
     public function pokemon(): HasMany
     {

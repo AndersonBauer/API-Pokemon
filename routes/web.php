@@ -19,9 +19,9 @@ Route::delete('pokemon/{id}', [PokemonController::class, 'destroy']);
 
 //rotas dos coach
 
-Route::get('coach', [CoachController::class, 'index']);
-Route::get('coach/create', [CoachController::class, 'create']);
-Route::post('coach', [CoachController::class, 'store']);
-Route::get('coach/{id}/edit', [CoachController::class, 'edit']);
-Route::put('coach/{id}', [CoachController::class, 'update']);
-Route::delete('coach/{id}', [CoachController::class, 'destroy']);
+Route::get('coaches', [CoachController::class, 'index']);
+Route::get('coaches/create', [CoachController::class, 'create']);
+Route::post('coaches', [CoachController::class, 'store']);
+Route::get('coaches/{id}/edit', [CoachController::class, 'edit']);
+Route::put('coaches/{id}', [CoachController::class, 'update']);
+Route::delete('coaches/{id}', [CoachController::class, 'destroy']);

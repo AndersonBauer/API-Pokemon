@@ -9,38 +9,59 @@ class CoachController extends Controller
 {
     public function index()
     {
-        $coach = Coach::all();
-        return view('coach.index', compact('coach'));
+        $coaches = Coach::all();
+        return view('coaches.index', compact('coaches'));
     }
     
     public function create()
     {
-        return view('coach.create');
+        return view('coaches.create');
     }
     
     public function store(Request $request)
     {
-        Coach::create($request->all());
-        return redirect('coach')->with('success', 'coach created successfully.');
+        $request->validate([
+            'nome' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+        ]);
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+
+        $coach = new Coach();
+        $coach->nome = $request->nome;
+        $coach->image = 'images/'.$imageName;
+        $coach->save();
+
+        return redirect('coaches')->with('success', 'coach created successfully.');
     }
     
     public function edit($id)
     {
         $coach = Coach::findOrFail($id);
-        return view('coach.edit', compact('coach'));
+        return view('coaches.edit', compact('coach'));
     }
     
     public function update(Request $request, $id)
     {
         $coach = Coach::findOrFail($id);
-        $coach->update($request->all());
-        return redirect('coach')->with('success', 'coach updated successfully.');
+
+        $coach->nome = $request->nome;
+
+        if(!is_null($request->image)) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+
+            $coach->image = 'images/'.$imageName;
+        }
+        $coach->save();
+
+        return redirect('coaches')->with('success', 'coach updated successfully.');
     }
     
     public function destroy($id)
     {
         $coach = Coach::findOrFail($id);
         $coach->delete();
-        return redirect('coach')->with('success', 'coach deleted successfully.');
+        return redirect('coaches')->with('success', 'coach deleted successfully.');
     }
 }
