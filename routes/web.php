@@ -9,6 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Nas ronas logo apos Route::get('pokemon/create', [PokemonController::class, 'create']) temos ->middleware(['auth', 'verified'])->name('create-pokemon');
+// essa parte do middleware ela nao eixa quem nao esta logado acessar as rotas que vc deseja, nesse caso apenas a index esta sem esse midleware
+// o que permite acessa-las sem estar logado, porem os botoes de editar e deletar estarao escondidos como ja foi definido no arquivo
+// index.blade.php com o @can que segue a mesma logica no base.blade.php que esconde os botoes de criar pokemon e coaches
+
 Route::get('pokemon', [PokemonController::class, 'index']);
 Route::get('pokemon/create', [PokemonController::class, 'create'])->middleware(['auth', 'verified'])->name('create-pokemon');
 Route::post('pokemon', [PokemonController::class, 'store'])->middleware(['auth', 'verified'])->name('store-pokemon');

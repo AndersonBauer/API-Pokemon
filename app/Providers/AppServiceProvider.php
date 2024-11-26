@@ -22,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // sempre que for um objeto da classe pokemon ele ele cahama a classe PokemonPolicy
         Gate::policy(Pokemon::class, PokemonPolicy::class);
     }
 }

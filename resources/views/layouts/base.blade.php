@@ -33,11 +33,13 @@
         <li>
           <a href="/pokemon" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">List Pokemon</a>
         </li>
+        <!-- Aqui eu to escondendo na header os botoes de create pokemon -->
         @can('create', App\Models\Pokemon::class)
             <li>
               <a href="/pokemon/create" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0          md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white  md:dark:hover:bg-transparent">Create Pokemon</a>
             </li>
         @endcan
+        <!-- Aqui eu to escondendo na header os botoes de create coach -->
         @can('create', App\Models\Pokemon::class)
             <li>
                 <a href="/coaches/create" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Create Coach</a>
