@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.base')
 @section('conteudo')
 
 <form action="{{ url('pokemon/'. $pokemon->id) }}" method="POST" enctype="multipart/form-data">

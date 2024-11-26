@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.base')
 @section('conteudo')
 
     <div class="flex flex-wrap justify-center mt-10">
