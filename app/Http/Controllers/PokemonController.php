@@ -17,6 +17,8 @@ class PokemonController extends Controller
 
     public function create()
     {
+        Gate::authorize('create', Pokemon::class);
+
         $coaches = Coach::all();
         return view('pokemon.create', compact('coaches'));
     }
@@ -47,6 +49,8 @@ class PokemonController extends Controller
 
     public function edit($id)
     {
+        Gate::authorize('update', Pokemon::class);
+
         $coaches = Coach::all();
         $pokemon = Pokemon::findOrFail($id);
         return view('pokemon.edit', compact('pokemon', 'coaches'));
@@ -74,6 +78,8 @@ class PokemonController extends Controller
 
     public function destroy($id)
     {
+        Gate::authorize('delete', Pokemon::class);
+
         $pokemon = Pokemon::findOrFail($id);
         $pokemon->delete();
         return redirect('pokemon')->with('success', 'pokemon deleted successfully.');

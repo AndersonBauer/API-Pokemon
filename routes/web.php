@@ -10,20 +10,20 @@ Route::get('/', function () {
 });
 
 Route::get('pokemon', [PokemonController::class, 'index']);
-Route::get('pokemon/create', [PokemonController::class, 'create']);
-Route::post('pokemon', [PokemonController::class, 'store']);
-Route::get('pokemon/{id}/edit', [PokemonController::class, 'edit']);
-Route::put('pokemon/{id}', [PokemonController::class, 'update']);
-Route::delete('pokemon/{id}', [PokemonController::class, 'destroy']);
+Route::get('pokemon/create', [PokemonController::class, 'create'])->middleware(['auth', 'verified'])->name('create-pokemon');
+Route::post('pokemon', [PokemonController::class, 'store'])->middleware(['auth', 'verified'])->name('store-pokemon');
+Route::get('pokemon/{id}/edit', [PokemonController::class, 'edit'])->middleware(['auth', 'verified'])->name('edit-pokemon');
+Route::put('pokemon/{id}', [PokemonController::class, 'update'])->middleware(['auth', 'verified'])->name('update-pokemon');
+Route::delete('pokemon/{id}', [PokemonController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroy-pokemon');
 
 //rotas dos coach
 
 Route::get('coaches', [CoachController::class, 'index']);
-Route::get('coaches/create', [CoachController::class, 'create']);
-Route::post('coaches', [CoachController::class, 'store']);
-Route::get('coaches/{id}/edit', [CoachController::class, 'edit']);
-Route::put('coaches/{id}', [CoachController::class, 'update']);
-Route::delete('coaches/{id}', [CoachController::class, 'destroy']);
+Route::get('coaches/create', [CoachController::class, 'create'])->middleware(['auth', 'verified'])->name('create-coach');
+Route::post('coaches', [CoachController::class, 'store'])->middleware(['auth', 'verified'])->name('store-coach');
+Route::get('coaches/{id}/edit', [CoachController::class, 'edit'])->middleware(['auth', 'verified'])->name('edit-coach');
+Route::put('coaches/{id}', [CoachController::class, 'update'])->middleware(['auth', 'verified'])->name('update-coach');
+Route::delete('coaches/{id}', [CoachController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroy-coach');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
